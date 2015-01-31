@@ -1,0 +1,156 @@
+[ 2014-11-06T20:08:17+08:00 ] 127.0.0.1 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000417s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000601s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000686s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead /var/www/html/mama/toupiao/ThinkPHP/Library/Think/Db/Driver/Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `common` [ RunTime:0.001970s ]
+ERR: 1146:Table 'mama_toupiao.common' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `common`
+
+[ 2014-11-06T20:08:17+08:00 ] 127.0.0.1 /User/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000297s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000353s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000401s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000026s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000067s ]
+NOTIC: [8] Undefined index: login_uid /var/www/html/mama/toupiao/Application/Runtime/Cache/Home/6830cbac89ff06451c77cd8769d6d4ca.php 第 55 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.064210s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.064251s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000181s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000203s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000374s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000401s ]
+
+[ 2014-11-06T20:08:20+08:00 ] 127.0.0.1 /User/login.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000009s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000175s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000213s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000244s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000032s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000095s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.050310s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.050356s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000082s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000103s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000254s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000280s ]
+
+[ 2014-11-06T20:08:22+08:00 ] 127.0.0.1 /Vote/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000009s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000175s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000224s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000264s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead /var/www/html/mama/toupiao/ThinkPHP/Library/Think/Db/Driver/Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `common` [ RunTime:0.000343s ]
+ERR: 1146:Table 'mama_toupiao.common' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `common`
+SQL: SHOW COLUMNS FROM `project` [ RunTime:0.077083s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `project` WHERE ( type = 1 AND del = 0 ) LIMIT 1   [ RunTime:0.033384s ]
+SQL: SELECT * FROM `project` WHERE ( type = 1 AND del = 0 ) ORDER BY dateline DESC LIMIT 0,15   [ RunTime:0.000434s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000031s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000068s ]
+NOTIC: [8] Undefined variable: registerClass /var/www/html/mama/toupiao/Application/Runtime/Cache/Home/9eb0be1c8543928b722255f5f5e17aa1.php 第 36 行.
+NOTIC: [8] Undefined variable: researchClass /var/www/html/mama/toupiao/Application/Runtime/Cache/Home/9eb0be1c8543928b722255f5f5e17aa1.php 第 39 行.
+NOTIC: [8] Undefined variable: addClass /var/www/html/mama/toupiao/Application/Runtime/Cache/Home/9eb0be1c8543928b722255f5f5e17aa1.php 第 63 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' /var/www/html/mama/toupiao/Application/Runtime/Cache/Home/9eb0be1c8543928b722255f5f5e17aa1.php 第 86 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' /var/www/html/mama/toupiao/Application/Runtime/Cache/Home/9eb0be1c8543928b722255f5f5e17aa1.php 第 86 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' /var/www/html/mama/toupiao/Application/Runtime/Cache/Home/9eb0be1c8543928b722255f5f5e17aa1.php 第 86 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' /var/www/html/mama/toupiao/Application/Runtime/Cache/Home/9eb0be1c8543928b722255f5f5e17aa1.php 第 86 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' /var/www/html/mama/toupiao/Application/Runtime/Cache/Home/9eb0be1c8543928b722255f5f5e17aa1.php 第 86 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' /var/www/html/mama/toupiao/Application/Runtime/Cache/Home/9eb0be1c8543928b722255f5f5e17aa1.php 第 86 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' /var/www/html/mama/toupiao/Application/Runtime/Cache/Home/9eb0be1c8543928b722255f5f5e17aa1.php 第 86 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' /var/www/html/mama/toupiao/Application/Runtime/Cache/Home/9eb0be1c8543928b722255f5f5e17aa1.php 第 86 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' /var/www/html/mama/toupiao/Application/Runtime/Cache/Home/9eb0be1c8543928b722255f5f5e17aa1.php 第 86 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' /var/www/html/mama/toupiao/Application/Runtime/Cache/Home/9eb0be1c8543928b722255f5f5e17aa1.php 第 86 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' /var/www/html/mama/toupiao/Application/Runtime/Cache/Home/9eb0be1c8543928b722255f5f5e17aa1.php 第 86 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' /var/www/html/mama/toupiao/Application/Runtime/Cache/Home/9eb0be1c8543928b722255f5f5e17aa1.php 第 86 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' /var/www/html/mama/toupiao/Application/Runtime/Cache/Home/9eb0be1c8543928b722255f5f5e17aa1.php 第 86 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' /var/www/html/mama/toupiao/Application/Runtime/Cache/Home/9eb0be1c8543928b722255f5f5e17aa1.php 第 86 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' /var/www/html/mama/toupiao/Application/Runtime/Cache/Home/9eb0be1c8543928b722255f5f5e17aa1.php 第 86 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' /var/www/html/mama/toupiao/Application/Runtime/Cache/Home/9eb0be1c8543928b722255f5f5e17aa1.php 第 86 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' /var/www/html/mama/toupiao/Application/Runtime/Cache/Home/9eb0be1c8543928b722255f5f5e17aa1.php 第 86 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' /var/www/html/mama/toupiao/Application/Runtime/Cache/Home/9eb0be1c8543928b722255f5f5e17aa1.php 第 86 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' /var/www/html/mama/toupiao/Application/Runtime/Cache/Home/9eb0be1c8543928b722255f5f5e17aa1.php 第 86 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' /var/www/html/mama/toupiao/Application/Runtime/Cache/Home/9eb0be1c8543928b722255f5f5e17aa1.php 第 86 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' /var/www/html/mama/toupiao/Application/Runtime/Cache/Home/9eb0be1c8543928b722255f5f5e17aa1.php 第 86 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' /var/www/html/mama/toupiao/Application/Runtime/Cache/Home/9eb0be1c8543928b722255f5f5e17aa1.php 第 86 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' /var/www/html/mama/toupiao/Application/Runtime/Cache/Home/9eb0be1c8543928b722255f5f5e17aa1.php 第 86 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' /var/www/html/mama/toupiao/Application/Runtime/Cache/Home/9eb0be1c8543928b722255f5f5e17aa1.php 第 86 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' /var/www/html/mama/toupiao/Application/Runtime/Cache/Home/9eb0be1c8543928b722255f5f5e17aa1.php 第 86 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' /var/www/html/mama/toupiao/Application/Runtime/Cache/Home/9eb0be1c8543928b722255f5f5e17aa1.php 第 86 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' /var/www/html/mama/toupiao/Application/Runtime/Cache/Home/9eb0be1c8543928b722255f5f5e17aa1.php 第 86 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' /var/www/html/mama/toupiao/Application/Runtime/Cache/Home/9eb0be1c8543928b722255f5f5e17aa1.php 第 86 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' /var/www/html/mama/toupiao/Application/Runtime/Cache/Home/9eb0be1c8543928b722255f5f5e17aa1.php 第 86 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' /var/www/html/mama/toupiao/Application/Runtime/Cache/Home/9eb0be1c8543928b722255f5f5e17aa1.php 第 86 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' /var/www/html/mama/toupiao/Application/Runtime/Cache/Home/9eb0be1c8543928b722255f5f5e17aa1.php 第 86 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' /var/www/html/mama/toupiao/Application/Runtime/Cache/Home/9eb0be1c8543928b722255f5f5e17aa1.php 第 86 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' /var/www/html/mama/toupiao/Application/Runtime/Cache/Home/9eb0be1c8543928b722255f5f5e17aa1.php 第 86 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' /var/www/html/mama/toupiao/Application/Runtime/Cache/Home/9eb0be1c8543928b722255f5f5e17aa1.php 第 86 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' /var/www/html/mama/toupiao/Application/Runtime/Cache/Home/9eb0be1c8543928b722255f5f5e17aa1.php 第 86 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' /var/www/html/mama/toupiao/Application/Runtime/Cache/Home/9eb0be1c8543928b722255f5f5e17aa1.php 第 86 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' /var/www/html/mama/toupiao/Application/Runtime/Cache/Home/9eb0be1c8543928b722255f5f5e17aa1.php 第 86 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' /var/www/html/mama/toupiao/Application/Runtime/Cache/Home/9eb0be1c8543928b722255f5f5e17aa1.php 第 86 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' /var/www/html/mama/toupiao/Application/Runtime/Cache/Home/9eb0be1c8543928b722255f5f5e17aa1.php 第 86 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' /var/www/html/mama/toupiao/Application/Runtime/Cache/Home/9eb0be1c8543928b722255f5f5e17aa1.php 第 86 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' /var/www/html/mama/toupiao/Application/Runtime/Cache/Home/9eb0be1c8543928b722255f5f5e17aa1.php 第 86 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' /var/www/html/mama/toupiao/Application/Runtime/Cache/Home/9eb0be1c8543928b722255f5f5e17aa1.php 第 86 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' /var/www/html/mama/toupiao/Application/Runtime/Cache/Home/9eb0be1c8543928b722255f5f5e17aa1.php 第 86 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' /var/www/html/mama/toupiao/Application/Runtime/Cache/Home/9eb0be1c8543928b722255f5f5e17aa1.php 第 86 行.
+NOTIC: [8] Use of undefined constant id - assumed 'id' /var/www/html/mama/toupiao/Application/Runtime/Cache/Home/9eb0be1c8543928b722255f5f5e17aa1.php 第 86 行.
+NOTIC: [8] Undefined variable: optionType /var/www/html/mama/toupiao/Application/Runtime/Cache/Home/9eb0be1c8543928b722255f5f5e17aa1.php 第 138 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.053420s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.053448s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000075s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000095s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000499s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000535s ]
+
+[ 2014-11-06T20:08:24+08:00 ] 127.0.0.1 /Vote/add.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000290s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000359s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000405s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead /var/www/html/mama/toupiao/ThinkPHP/Library/Think/Db/Driver/Mysql.class.php 第 52 行.
+SQL: SHOW COLUMNS FROM `common` [ RunTime:0.000458s ]
+ERR: 1146:Table 'mama_toupiao.common' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `common`
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000032s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000072s ]
+NOTIC: [8] Undefined variable: registerClass /var/www/html/mama/toupiao/Application/Runtime/Cache/Home/46b4f8ce50cfba97b2c6d2480ff21293.php 第 36 行.
+NOTIC: [8] Undefined variable: researchClass /var/www/html/mama/toupiao/Application/Runtime/Cache/Home/46b4f8ce50cfba97b2c6d2480ff21293.php 第 39 行.
+NOTIC: [8] Undefined variable: listClass /var/www/html/mama/toupiao/Application/Runtime/Cache/Home/46b4f8ce50cfba97b2c6d2480ff21293.php 第 62 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.006536s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.006564s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000067s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000093s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000255s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000285s ]
+

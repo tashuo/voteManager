@@ -1,0 +1,43 @@
+<include file="Public/header_show" title="{$voteInfo.title}" />
+
+<div class="container">
+    <div class="rows">
+    	<div class="col-md-12">
+    	    <div class="alert alert-success" role="alert" align="center">{$voteInfo.title}</div>
+	    <form id="submitVoteForm" class="form-horizontal" role="form" method="post" action="{:U('Post/index')}">
+	        <foreach name="items" item="v" key="i">
+	        	<div class="panel panel-default">
+	        	    <div class="panel-heading">
+	        	    	<h3 class="panel-title">{$i+1}、{$v.title}</h3>
+	        	    </div>
+	        	    <table class="table">
+	        	    	<tr>
+	        	    	    <th width="30%">选项</th>
+	        	    	    <th>投票结果</th>
+	        	    	</tr>
+	        	    	<foreach name="v.options" item="vv" key="j">
+	        	    	<tr>
+	        	    	    <td>{$j+1}、{$vv}</td>
+	        	    	    <td>
+	        	    	    	<eq name="v['results'][$j]" value="0">
+	        	    	    	    <span>0%</span>
+	        	    	    	<else />
+	        	    	    	<span class="progress">
+					<span class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="{$v['results'][$j]*100/$v['totalVotes']|sprintf='%.2f',###}" aria-valuemin="0" aria-valuemax="100" style="width: {$v['results'][$j]*100/$v['totalVotes']|sprintf='%.2f',###}%;" min-width="20px">{$v['results'][$j]*100/$v['totalVotes']|sprintf='%.2f',###}%</span>
+				</span>
+				</eq>
+			    </td>
+			</tr>
+	        	    	</foreach>
+	        	    </table>
+	        	</div>
+	        </foreach>
+	    </form>
+	</div>
+    </div>
+</div>
+
+
+
+
+<include file="Public/footer_show" />

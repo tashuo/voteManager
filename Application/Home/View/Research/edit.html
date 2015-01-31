@@ -1,0 +1,133 @@
+<include file="Public/header" title="修改投票项目--妈网投票系统" />
+
+<div class="container">
+  <div class="rows">
+    <div class="col-md-12 content">
+    	<ul class="nav nav-tabs" role="tablist">
+    		<li role="presentation" class="{$listClass}"><a href="{:U('Vote/index')}">投票列表</a></li>
+		<li role="presentation" class="{$addClass}"><a href="{:U('Vote/add')}">发起投票</a></li>
+		<if condition="($editClass)">
+		    <li role="presentation" class="{$editClass}"><a href="javascript:;">修改投票项目</a></li>
+		</if>
+	</ul>
+
+	<div class="addvote">
+	    <div class="alert alert-info" role="alert">请修改下列所需修改的控制信息</div>
+	    <form class="form-horizontal" id="voteUpdateForm" role="form" method="post" action="{:U('Post/index')}">
+	    	<div class="form-group">
+	    		<label for="voteTitle" class="col-sm-2 control-label">投票项目标题</label>
+	    		<div class="col-sm-5">
+	    			<input type="text" class="form-control require" name="voteTitle" id="voteTitle" placeholder="项目标题" value="{$voteData.voteInfo.title}">
+	    		</div>
+	    	</div>
+	    	<div class="form-group">
+	    		<label for="startDate" class="col-sm-2 control-label">投票时间区间</label>
+	    		    <div class="col-sm-5" id="voteRangeDate">
+		    	    	<div class="input-daterange input-group">
+    		    	        	    <input type="text" class="form-control require" id="startDate" name="startDate" value="{$voteData.voteInfo.start_time|timestamp_to_chinese=###}"/>
+    		    	        	    <span class="input-group-addon">至</span>
+    		    	        	    <input type="text" class="form-control require" id="endDate" name="endDate" value="{$voteData.voteInfo.end_time|timestamp_to_chinese=###}"/>
+    		    	    	</div>
+    		    	    </div>
+    		</div>
+    		<div class="form-group">
+    			<label for="" class="col-sm-2 control-label">是否启动</label>
+    			<div class="col-sm-5">
+    			    <label class="radio-inline">
+    			    	<input type="radio" name="isStart" value="1" checked="checked">启动
+    			    </label>
+    			    <label class="radio-inline">
+    			    	<input type="radio" name="isStart" value="0">不启动
+    			    </label>
+    			</div>
+    		</div>
+    		<div class="form-group">
+    			<label for="" class="col-sm-2 control-label">是否需要登录</label>
+    			<div class="col-sm-5">
+    			    <label class="radio-inline">
+    			    	<input type="radio" name="loginRequire" value="1" {$voteData['voteInfo']['login_require']?'checked':''}>需要
+    			    </label>
+    			    <label class="radio-inline">
+    			    	<input type="radio" name="loginRequire" value="0" {$voteData['voteInfo']['login_require']?'':'checked'}>不需要
+    			    </label>
+    			</div>
+    		</div>
+    		<div class="form-group">
+    			<label for="" class="col-sm-2 control-label">是否允许查看结果</label>
+    			<div class="col-sm-5">
+    			    <label class="radio-inline">
+    			    	<input type="radio" name="seeAble" value="1" {$voteData['voteInfo']['see_able']?'checked':''}>允许
+    			    </label>
+    			    <label class="radio-inline">
+    			    	<input type="radio" name="seeAble" value="0" {$voteData['voteInfo']['see_able']?'':'checked'}>不允许
+    			    </label>
+    			</div>
+    		</div>
+		<div class="form-group">
+			<label for="" class="col-sm-2 control-label">投票规则</label>
+			<div class="col-sm-5">
+				<select name="voteRule" class="form-control">
+					<foreach name="voteRule" item="val" key="k">
+						<option value="{$k}" {$voteData['voteInfo']['vote_rule']==$k?'selected':''}>{$val}</option>
+					</foreach>
+				</select>
+			</div>
+		</div>
+		<div class="alert alert-danger" role="alert">
+			请添加或删除投票项(提醒：修改后投票结果将置空！)
+			<button type="button" class="btn btn-default" id="addItem"><span class="glyphicon glyphicon-plus"></span>  添加新条目</button>
+		</div>
+		<table class="table table-hover" id="optionTable">
+			<tr>
+			    <th>类型</th>
+			    <th>标题</th>
+			    <th>编号排序</th>
+			    <th>选项</th>
+			</tr>
+			<foreach name="voteData['voteOptions']" item="v" key="i">
+			    <tr>
+			        <td>
+			            <select name="childType{$i}" class="form-control">
+			                <foreach name="optionType" item="val" key="k">
+			                	<option value="{$k}" {$k==$v['type']?'selected':''}>{$val}</option>
+			                </foreach>
+			            </select>
+			        </td>
+			        <td>
+			        	<div>
+			        	    <input type="text" class="form-control require" name="childTitle{$i}" placeholder="标题" value="{$v.title}"/>
+			        	</div>
+			        <td>
+			        	<div>
+			        	    <input type="text" class="form-control require" name="childRange{$i}" placeholder="排序" value="{$v.range}"/>
+			        	</div>
+			        </td>
+			        <td>
+			        	<eq name="v['type']" value="textarea">
+			        	    <input type="text" class="form-control" placeholder="不可用" disabled/>
+			        	    <else />
+			        	    <foreach name="v['options']" item="val" key="i"> 
+			        	    	<div class={$i==$v['option_count']-1?'input-group':''}>
+			        	    	    <input type="text" class="form-control require" name="childOption{$i}_1" placeholder="选项{$i+1}" value="{$val}"/>
+			        	    	{$i==$v['option_count']-1?'':'</div>'}
+			        	    </foreach>
+			        	        <span class="input-group-btn">
+			        	            <button class="btn btn-default addOption" type="button" data-toggle="tooltip" data-placement="right" title="新建一个子选项">添加
+			        	            </button>
+			        	        </span>
+			        	    </div>
+			        	</eq>
+			        </td>
+			    </tr>
+			</foreach>
+		</table>
+		<input type="hidden" name="voteId" value="{$voteId}" />
+		<input type="hidden" id="optionNum" name="optionNum" value="{$optonsCount}" />
+		<input type="hidden" name="formActionType" value="updateVote" />
+		<div align="center">
+		    <button type="submit" class="btn btn-primary btn-lg">生成表单</button>
+		</div>
+	    </form>
+	</div>
+
+<include file="Public/footer" />

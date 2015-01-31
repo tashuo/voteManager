@@ -1,0 +1,66 @@
+<include file="Public/header_show" title="{$voteInfo.title}-投票结果" />
+
+<div class="container">
+    <div class="rows">
+    	<div class="col-md-12">
+    	    <div class="alert alert-success" role="alert" align="center">
+    	    	{$voteInfo.title}
+    	    </div>
+	        <foreach name="items" item="v" key="i">
+	        	<div class="panel panel-default">
+	        	    <div class="panel-heading">
+	        	    	<h3 class="panel-title">
+	        	    	    <a data-toggle="collapse" href="#collapse_{$i}">{$i+1}、{$v.title}</a>
+	        	    	</h3>
+	        	    </div>
+	        	    	<table class="table in" id="collapse_{$i}">
+	        	    		<tr>
+	        	    		    <th width="30%">选项</th>
+	        	    		    <th width="70%">投票结果</th>
+	        	    		</tr>
+	        	    		<if condition="($v.type eq 'text') OR ($v.type eq 'textarea')">
+				    <tr>
+				    	<td>{$v.options.0}</td>
+				    	<td>
+				    		<foreach name="v['results']" item="vv" key="j">
+				    		    <eq name="j" value="5">
+				    		    	<div id="collapse_{$i}_hideContent" style="display: none">
+				    		    </eq>
+				    		    <p>{$vv}</p>
+				    		</foreach>
+				    		<gt name="v.results|count" value="5">
+				    		    </div>
+				    		    <a class="clickToggle" href="javascript:;">点击展开</a>
+				    		</gt>
+				    	</td>
+				    </tr>
+	        	    		<else />
+	        	    		<foreach name="v.options" item="vv" key="j">
+	        	    		<tr>
+	        	    		    <td>{$j+1}、{$vv}</td>
+	        	    		    <td>
+	        	    		    	<eq name="v['results'][$j]" value="0">
+	        	    		    	    <span>0%</span>
+	        	    		    	<else />
+	        	    		    	<span class="progress">
+					<span class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="{$v['results'][$j]*100/$v['totalVotes']|sprintf='%.2f',###}" aria-valuemin="0" aria-valuemax="100" style="width: {$v['results'][$j]*100/$v['totalVotes']|sprintf='%.2f',###}%;" min-width="20px">{$v['results'][$j]*100/$v['totalVotes']|sprintf='%.2f',###}%</span>
+					</span>
+					</eq>
+				    </td>
+				</tr>
+	        	    		</foreach>
+	        	    		</if>
+	        	    	</table>
+	        	</div>
+	        </foreach>
+	        <div align="center">
+	        	<a class="btn btn-info" href="{:U('Show/index','proId='.$voteInfo['id'])}">参与投票</a>
+	        </div>
+	</div>
+    </div>
+</div>
+
+
+
+
+<include file="Public/footer_show" />

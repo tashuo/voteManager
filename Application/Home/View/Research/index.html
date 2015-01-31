@@ -1,0 +1,64 @@
+<include file="Public/header" title="妈网投票系统" />
+
+<div class="container">
+  <div class="rows">
+    <div class="col-md-12 content">
+    	<ul class="nav nav-tabs" role="tablist">
+    		<li role="presentation" class="{$listClass}"><a href="{:U('Vote/index')}">投票列表</a></li>
+		<li role="presentation" class="{$addClass}"><a href="{:U('Vote/add')}">发起投票</a></li>
+	</ul>
+	<div class="table-responsive">
+	    <table class="table table-hover">
+	        <tr class="success">
+	            <th>标题</th>
+	            <th>创建人</th>
+	            <th>创建时间</th>
+	            <th>开始时间</th>
+	            <th>结束时间</th>
+	            <th>状态</th>
+	            <th>操作</th>
+	        </tr>
+	        <foreach name="voteList" item="v">
+	            <tr>
+	        	    <td>{$v.title}</td>
+	                <td>{$v.username}</td>
+	                <td>{$v.dateline|date='Y-m-d H:i:s',###}</td>
+	                <td>{$v.start_time|date='Y-m-d H:i:s',###}</td>
+	                <td>{$v.end_time|date='Y-m-d H:i:s',###}</td>
+	                <td>
+	                    <if condition="$v.is_active eq 1">
+	                    	已启动
+	                    	<else />未启动
+	                    </if>
+	                </td>
+	                <td><a href="{:U('Vote/edit','vid='.$v[id])}" target="_blank">编辑</a> || <a href="{:U('Vote/delete')}" idAttr="{$v.id}" class="deleteVoteLink">删除</a> || <a href="javascript:;" >生成js</a> || <a href="{:U('Show/index','voteId='.$v[id])}" target="_blank">预览</a> || <a href="{:U('Vote/result','voteId='.$v[id])}" target="_blank" >查看结果</a>
+	                </td>
+	            </tr>
+	        </foreach>
+	    </table>
+	</div>
+	<div align="center">{$page}</div>
+    </div>
+  </div>
+</div>
+
+<!--删除出错提示窗-->
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"  >
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          <h3 class="modal-title text-center" id="myModalLabel">提示框</h3>
+        </div>
+        <div class="modal-body">
+          <h4><strong>Error!</strong></h4>
+          <h5 class="alert alert-danger" role="alert">数据删除失败！</h5>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+  </div>
+
+<include file="Public/footer" />

@@ -1,0 +1,130 @@
+<include file="Public/header" title="发起投票" />
+
+<div class="container">
+  <div class="rows">
+    <div class="col-md-12 content">
+    	<ul class="nav nav-tabs" role="tablist">
+    		<li role="presentation" class="{$listClass}"><a href="{:U('Vote/index')}">投票列表</a></li>
+		<li role="presentation" class="{$addClass}"><a href="{:U('Vote/add')}">发起投票</a></li>
+	</ul>
+
+	<div class="addvote">
+	    <div class="alert alert-info" role="alert">请填写控制信息</div>
+	    <form class="form-horizontal" id="voteForm" role="form" method="post" action="{:U('Post/index')}">
+	    	<div class="form-group">
+	    		<label for="projectTitle" class="col-sm-2 control-label">投票项目标题</label>
+	    		<div class="col-sm-5">
+	    			<!-- <div class="has-error"> -->
+	    			<input type="text" class="form-control require" name="projectTitle" id="projectTitle" placeholder="项目标题">
+	    			<!-- </div> -->
+	    		</div>
+	    	</div>
+	    	<div class="form-group">
+	    		<label for="startDate" class="col-sm-2 control-label">投票时间区间</label>
+	    		    <div class="col-sm-5" id="RangeDate">
+		    	    	<div class="input-daterange input-group">
+    		    	        	    <input type="text" class="form-control require" id="startDate" name="startDate" />
+    		    	        	    <span class="input-group-addon">至</span>
+    		    	        	    <input type="text" class="form-control require" id="endDate" name="endDate" />
+    		    	    	</div>
+    		    	    </div>
+    		</div>
+    		<div class="form-group">
+    			<label for="" class="col-sm-2 control-label">是否启动</label>
+    			<div class="col-sm-5">
+    			    <label class="radio-inline">
+    			    	<input type="radio" name="isStart" value="1" checked="checked">启动
+    			    </label>
+    			    <label class="radio-inline">
+    			    	<input type="radio" name="isStart" value="0">不启动
+    			    </label>
+    			</div>
+    		</div>
+    		<div class="form-group">
+    			<label for="" class="col-sm-2 control-label">是否需要登录</label>
+    			<div class="col-sm-5">
+    			    <label class="radio-inline">
+    			    	<input type="radio" name="loginRequire" value="1" checked="checked">需要
+    			    </label>
+    			    <label class="radio-inline">
+    			    	<input type="radio" name="loginRequire" value="0">不需要
+    			    </label>
+    			</div>
+    		</div>
+    		<div class="form-group">
+    			<label for="" class="col-sm-2 control-label">是否允许查看结果</label>
+    			<div class="col-sm-5">
+    			    <label class="radio-inline">
+    			    	<input type="radio" name="seeAble" value="1" checked="checked">允许
+    			    </label>
+    			    <label class="radio-inline">
+    			    	<input type="radio" name="seeAble" value="0">不允许
+    			    </label>
+    			</div>
+    		</div>
+		<div class="form-group">
+			<label for="" class="col-sm-2 control-label">投票规则</label>
+			<div class="col-sm-5">
+				<select name="voteRule" class="form-control">
+					<foreach name="voteRule" item="val" key="k">
+						<option value="{$k}">{$val}</option>
+					</foreach>
+				</select>
+			</div>
+		</div>
+		<div class="alert alert-info" role="alert">
+			请添加所需投票项
+			<button type="button" class="btn btn-default" id="addItem"><span class="glyphicon glyphicon-plus"></span>  添加新条目</button>
+		</div>
+		<table class="table table-hover" id="optionTable">
+			<tr>
+			    <th width="20%">类型</th>
+			    <th width="40%">标题</th>
+			    <th width="10%">编号排序</th>
+			    <th>选项</th>
+			</tr>
+			<for start="0" end="1">
+			    <tr>
+			        <td>
+			        	<div class="input-group">
+			        	    <span class="input-group-btn">
+			        	    	<button class="btn btn-danger deleteItem" type="button" data-toggle="tooltip" data-placement="right" title="删除此题">删除
+			        	    	</button>
+			        	    </span>
+			                <select name="childType{$i}" class="form-control">
+			                    <foreach name="optionType" item="val" key="k">
+			                    	<option value="{$k}">{$val}</option>
+			                    </foreach>
+			                </select>
+			        	</div>
+			        </td>
+			        <td>
+			        	<div>
+			        	    <input type="text" class="form-control require" name="childTitle{$i}" placeholder="标题" />
+			        	</div>
+			        <td>
+			        	<div>
+			        	    <input type="text" class="form-control require" name="childRange{$i}" placeholder="排序" value="1"/>
+			        	</div>
+			        </td>
+			        <td>
+			        	    <div class="input-group">
+			        	        <input type="text" class="form-control require" name="childOption{$i}_1" placeholder="选项1"/>
+			        	        <span class="input-group-btn">
+			        	            <button class="btn btn-info addOption" type="button" data-toggle="tooltip" data-placement="right" title="新建一个子选项">添加
+			        	            </button>
+			        	        </span>
+			        	    </div>
+			        </td>
+			    </tr>
+			</for>
+		</table>
+		<input type="hidden" id="optionNum" name="optionNum" value="1" />
+		<input type="hidden" name="formActionType" value="newVote" />
+		<div align="center">
+		    <button type="submit" class="btn btn-primary btn-lg">生成表单</button>
+		</div>
+	    </form>
+	</div>
+
+<include file="Public/footer" />

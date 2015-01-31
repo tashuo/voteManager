@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>[title]--妈网后台功能系统</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="__PUBLIC__/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="__PUBLIC__/css/style.css">
+    <link href="http://cdn.bootcss.com/bootstrap-datepicker/1.3.0/css/datepicker3.min.css" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="http://cdn.bootcss.com/html5shiv/3.7.0/html5shiv.min.js"></script>
+    <script src="http://cdn.bootcss.com/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+  <!-- 导航栏 Start -->
+  <header class="navbar navbar-inverse navbar-fixed-top bs-docs-nav" role="banner">
+    <div class="container">
+      <div class="navbar-header">
+        <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a href="{:U('Vote/index')}" class="navbar-brand">妈网后台系统</a>
+      </div>
+      <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
+        <ul class="nav navbar-nav first_ul">
+            <li class="{$voteClass}">
+              <a href="{:U('Vote/index')}">投票</a>
+            </li>
+            <li class="{$registerClass}">
+              <a href="{:U('Register/index')}">报名</a>
+            </li>
+            <!-- <li class="{$researchClass}">
+              <a href="{:U('Research/index')}">调查</a>
+            </li> -->
+        </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <if condition="$_SESSION['login_uid']">
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">{$_SESSION['login_username']}<b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                  <li><a href="{:U('User/logout')}">退出</a></li>
+                </ul>
+              </li>
+            <else />
+              <li><a href="http://um.mama.cn/connect.php?action=view">登录</a></li>
+            </if>
+          </ul>
+      </nav>
+    </div>
+  </header>
+  <!-- 导航栏 End-->

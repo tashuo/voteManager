@@ -1,0 +1,36 @@
+<include file="Public/header" title="{$registerInfo.title}-报名结果" />
+
+<div class="container">
+  <div class="rows">
+    <div class="col-md-12 content">
+    	<ul class="nav nav-tabs" role="tablist">
+    		<li role="presentation" class="{$listClass}"><a href="{:U('Register/index')}">报名列表</a></li>
+		<li role="presentation" class="{$addClass}"><a href="{:U('Register/add')}">发起报名</a></li>
+		<li role="presentation" class="{$resultClass}"><a href="javascript:;">报名项目结果</a></li>
+	</ul>
+    	    <div class="alert alert-info" role="alert" align="center">{$registerInfo.title}(已有 <i>{$totalRegister}</i> 位网友报名)</div>
+	    <div class="table-responsive">
+	    <table class="table table-hover">
+	        <tr class="success">
+	            <th>妈网ID</th>
+	            <foreach name="items" item="v" key="i">
+	                <th>{$v.title}</th>
+	            </foreach>
+	        </tr>
+	        <foreach name="eachAction" item="v">
+	            <tr>
+	        	    <td>{$v.username}</td>
+	        	    <foreach name="v['action']" item="a">
+	                	<td>{$a}</td>
+	                </foreach>
+	            </tr>
+	        </foreach>
+	    </table>
+	</div>
+	<div align="center">{$page}</div>
+	</div>
+    </div>
+</div>
+
+
+<include file="Public/footer" />
